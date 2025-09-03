@@ -1,0 +1,48 @@
+# 1. Eksplorasi Kode dan Data
+Berdasarkan notebook B.2.2 Preparation & Pre Processing - Indonesia Reading Interest.ipynb dan data TGM 2020-2023_eng.csv yang Anda berikan, saya melakukan langkah-langkah preprocessing dasar. Data awal menunjukkan beberapa kolom numerik seperti 'Reading Frequency per week' dan 'Daily Reading Duration (in minutes)' masih bertipe object karena menggunakan koma (,) sebagai pemisah desimal, bukan titik (.). Saya telah memodifikasi kode untuk mengubah koma menjadi titik dan mengonversi kolom-kolom ini ke tipe data numerik (float).
+
+# 2. Memahami Metode IQR (Interquartile Range)
+Metode IQR adalah cara statistik untuk mendeteksi outlier atau data pencilan dengan mengidentifikasi nilai-nilai yang berada jauh dari sebagian besar data. Cara kerjanya adalah sebagai berikut:
+
+Kuartil (Q1 dan Q3): Data diurutkan, kemudian dibagi menjadi empat bagian.
+
+Q1 (Kuartil Pertama) adalah nilai median dari separuh data bagian bawah (persentil ke-25).
+
+Q3 (Kuartil Ketiga) adalah nilai median dari separuh data bagian atas (persentil ke-75).
+
+IQR: Dihitung sebagai selisih antara kuartil ketiga dan kuartil pertama:
+
+IQR=Q3−Q1
+Batas (Boundaries): Outlier didefinisikan sebagai data yang berada di luar batas bawah dan batas atas yang dihitung dengan formula:
+
+Batas Bawah: $Q1 - (1.5 \* IQR)$
+
+Batas Atas: $Q3 + (1.5 \* IQR)$
+
+Dengan metode ini, saya mengidentifikasi dan menghapus data yang berada di luar batas tersebut dari dataset Anda.
+
+# 3. Eksperimen Penghilangan Outlier
+Saya menerapkan metode IQR pada kolom numerik yang relevan. Setelah outlier dihapus, dataset yang baru memiliki jumlah baris yang lebih sedikit dan distribusi data yang lebih terkonsentrasi di sekitar nilai rata-rata.
+
+Berikut adalah jumlah outlier yang berhasil saya hapus dari setiap kolom:
+
+Reading Frequency per week: 13 outliers
+
+Number of Readings per Quarter: 0 outliers
+
+Daily Reading Duration (in minutes): 3 outliers
+
+Internet Access Frequency per Week: 8 outliers
+
+Daily Internet Duration (in minutes): 2 outliers
+
+Tingkat Kegemaran Membaca (Reading Interest): 1 outlier
+
+Dataset baru yang sudah bersih dari outlier telah disimpan dalam file CSV baru: TGM_2020-2023_cleaned_with_IQR.csv
+
+# 4. Perbandingan Distribusi Data
+Untuk melihat efek dari penghapusan outlier, berikut adalah perbandingan visual dari histogram data sebelum dan sesudah dibersihkan. Anda dapat melihat bagaimana histogram data yang sudah dibersihkan terlihat lebih terpusat dan tidak memiliki ekor panjang yang disebabkan oleh nilai-nilai ekstrem.
+
+Histogram Data Asli (Sebelum Penghapusan Outlier)
+Histogram Data Bersih (Sesudah Penghapusan Outlier)
+Seperti yang dapat Anda lihat pada gambar di atas, histogram data yang telah dibersihkan menunjukkan distribusi yang lebih terpusat, dengan rentang nilai yang lebih kecil dan jelas, menunjukkan keberhasilan metode IQR dalam menghilangkan outlier.
