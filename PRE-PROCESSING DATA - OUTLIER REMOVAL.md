@@ -45,8 +45,9 @@ Setelah proses ini, dataset yang sudah bersih disimpan dalam file baru bernama `
 Untuk melihat efek dari penghapusan outlier, berikut adalah perbandingan visual melalui histogram. Perhatikan bagaimana distribusi data menjadi lebih terpusat dan rapi setelah outlier dihilangkan.
 
 #### Histogram Data Asli (Sebelum Penghapusan Outlier)
-
+`C:\Users\User\Downloads\sebelum outlier.png`
 #### Histogram Data yang Sudah Dibersihkan (Sesudah Penghapusan Outlier)
+`C:\Users\User\Downloads\sesudah outlier.png`
 
 Seperti yang terlihat, histogram data yang dibersihkan memiliki rentang nilai yang lebih sempit dan lebih terfokus, menunjukkan bahwa data outlier telah berhasil dikeluarkan.
 
